@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Mes CDs Empruntés</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h2>Liste des CDs Empruntés</h2>
+        <h:messages/>
+
+        <h:dataTable value="#{CDBean.borrowedCDs}" var="cd">
+            <h:column>
+                <f:facet name="header">Titre</f:facet>
+                #{cd.title}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:commandButton value="Retourner" action="#{CDBean.returnCD(cd.id)}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</h:body>
+</html>
